@@ -1,0 +1,606 @@
+@charset "UTF-8";
+html {
+  /* Prevent system color scheme's text color being used in Firefox, IE, and Opera. */
+  color: #000;
+  /* Set default font family to sans-serif. */
+  font-family: sans-serif;
+  /* Prevent iOS text size adjust after orientation change, without disabling user zoom. */
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; }
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.clearfix {
+  *zoom: 1; }
+  .clearfix:before, .clearfix:after {
+    content: " ";
+    display: table; }
+  .clearfix:after {
+    clear: both; }
+
+/* Zero-out all elements to remove browser defaults. */
+a, abbr, acronym, address, applet, article, aside, audio,
+b, big, blockquote, body, canvas, caption, center, cite,
+code, dd, del, details, dfn, dl, dt, em, embed, fieldset,
+figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6,
+header, hgroup, html, i, iframe, img, ins, kbd, label,
+legend, li, mark, menu, nav, object, ol, output, p, pre,
+q, ruby, s, samp, section, small, strike, strong, sub,
+summary, sup, table, tbody, td, tfoot, th, thead, time,
+tr, tt, u, ul, var, video, :before, :after, .content,
+.media, .step-title, .step-info, .title-info, .chapter-number,
+.grid, .grid-item {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* Reset line height to unitless 1. */
+body {
+  line-height: 1; }
+
+/* Remove browser default list styling. */
+ol,
+ul {
+  list-style: none; }
+
+/* Remove browser default quotation. */
+blockquote, q {
+  quotes: none; }
+
+/* Remove any before/after quote characters. */
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none; }
+
+/* Remove any default spacing from tables. */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* Give a help cursor to elements that give extra info on `:hover`. */
+abbr[title],
+dfn[title] {
+  cursor: help; }
+
+/* Remove underlines from potentially troublesome elements. */
+u, ins {
+  text-decoration: none; }
+
+/* So that `alt` text is visually offset if images don’t load. */
+img {
+  font-style: italic; }
+
+/* Give form elements some cursor interactions. */
+label,
+input,
+textarea,
+button,
+select,
+option {
+  cursor: pointer; }
+
+/* Give text inputs the text cursor and remove any focus outline. */
+.text-input:active,
+.text-input:focus,
+textarea:active,
+textarea:focus {
+  cursor: text;
+  outline: none; }
+
+.left {
+  float: left;
+  clear: left !important;
+  display: block;
+  margin-left: 0;
+  margin-right: 33px; }
+  .right + .left {
+    margin-right: 0; }
+
+.right {
+  float: right;
+  clear: right !important;
+  display: block;
+  margin-left: 0;
+  margin-left: 33px; }
+  .left + .right {
+    margin-left: 0; }
+
+.center {
+  float: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.left,
+.right {
+  -webkit-margin-collapse: collapse;
+  margin-top: em(16.5px);
+  margin-bottom: em(33px); }
+  .left:first-child + p,
+  .right:first-child + p {
+    margin-top: 0; }
+  p + .left + p, p +
+  .right + p {
+    margin-top: 0; }
+
+.full-bleed-padding {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: 62.5em; }
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Roboto Regular"), local("Roboto-Regular"), url(http://themes.googleusercontent.com/static/fonts/roboto/v11/CrYjSnGjrRCn0pd9VQsnFOvvDin1pK8aKteLpeZ5c0A.woff) format("woff"); }
+
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Merriweather"), url(http://themes.googleusercontent.com/static/fonts/merriweather/v6/RFda8w1V0eDZheqfcyQ4EKRDOzjiPcYnFooOUGCOsRk.woff) format("woff"); }
+
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Merriweather Bold"), local("Merriweather-Bold"), url(http://themes.googleusercontent.com/static/fonts/merriweather/v6/ZvcMqxEwPfh2qDWBPxn6nhAPw1J91axKNXP_-QX9CC8.woff) format("woff"); }
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-size: 45px;
+  font-weight: 700; }
+  @media only screen and (max-width: 560px) {
+    h1 {
+      font-size: 36px; } }
+
+h2 {
+  font-size: 22px;
+  font-family: "Roboto", sans-serif;
+  padding-bottom: 16.5px;
+  line-height: 49.5px; }
+
+h4 {
+  font-size: 17px;
+  font-family: "Merriweather";
+  font-weight: 700;
+  line-height: 1.6;
+  color: white; }
+
+h5 {
+  padding-bottom: 33px; }
+
+p, li {
+  font-family: "Merriweather";
+  font-size: 20px;
+  line-height: 33px;
+  color: #333333; }
+  @media only screen and (max-width: 560px) {
+    p, li {
+      font-size: 17px;
+      line-height: 1.6; } }
+
+a {
+  color: white;
+  font-weight: 700;
+  border-bottom: 1px solid;
+  text-decoration: none;
+  transition: all 0.5s ease; }
+
+/* Small screens (default) */
+html {
+  font-size: 100%;
+  color: #f8f8f8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+/* Medium screens */
+@media (min-width: 560px) {
+  html {
+    font-size: 112%; } }
+/* Large screens */
+@media (min-width: 860px) {
+  html {
+    font-size: 120%; } }
+/* Helpers */
+.block {
+  display: block; }
+
+.center {
+  margin: auto 0;
+  text-align: center; }
+
+.half-spacing-unit-top {
+  padding-top: 16.5px; }
+
+.base-spacing-unit-top {
+  padding-top: 33px; }
+
+.base-spacing-unit-top-2 {
+  padding-top: 66px; }
+  @media only screen and (max-width: 560px) {
+    .base-spacing-unit-top-2 {
+      padding-top: 33px; } }
+
+.base-spacing-unit-bottom-2 {
+  padding-bottom: 66px; }
+  @media only screen and (max-width: 560px) {
+    .base-spacing-unit-bottom-2 {
+      padding-bottom: 33px; } }
+
+.small-link {
+  display: block;
+  font-size: 0.75em;
+  text-align: center; }
+
+.no-link {
+  border-bottom: none; }
+
+/* Placeholders */
+h5, .label, h2 {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-align: center; }
+
+.welcome, .playlist, .donate-container {
+  background-color: #333333;
+  color: white; }
+  .welcome p, .playlist p, .donate-container p {
+    color: white; }
+
+.intro, .itinerary, .thanks {
+  background-color: #2c3e50;
+  color: white; }
+  .intro p, .itinerary p, .thanks p {
+    color: white; }
+.itinerary-alt {
+  background-color: #3a5269;
+} 
+.itinerary-alt p {
+  color:white;
+}   
+
+.dates, .accomodations {
+  background-color: #a39161;
+  color: white; }
+  .dates p, .accomodations p {
+    color: white; }
+
+.intro, .dates, .playlist, .attendees, .itinerary, .itinerary-alt, .accomodations, .thanks, .donate-container {
+  padding: 33px; }
+  .intro:after, .dates:after, .playlist:after, .attendees:after, .itinerary:after, .itinerary-alt, .accomodations:after, .thanks:after, .donate-container:after {
+    content: "";
+    display: table;
+    clear: both; }
+  @media (min-width: 560px) {
+    .intro, .dates, .playlist, .attendees, .itinerary, .itinerary-alt, .accomodations, .thanks, .donate-container {
+      padding: 66px; } }
+  @media (min-width: 860px) {
+    .intro, .dates, .playlist, .attendees, .itinerary, .itinerary-alt, .accomodations, .thanks, .donate-container {
+      padding: 132px; } }
+
+.drizzy h1 {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
+/* End Placeholders */
+.flag {
+  width: 45px; }
+
+
+
+.drizzy {
+  background: url(images/drizzy.jpg) no-repeat;
+  height: 500px;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  background-size: cover;
+  	/*
+	@include respond-min-width(400px){
+  		-webkit-background-size: cover;
+  		-moz-background-size: cover;
+  		-o-background-size: cover;
+  		background-size: cover;
+  	}
+	*/ }
+  .drizzy p {
+    text-align:center;
+    color:white;
+    position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  }
+  @media only screen and (max-width: 560px) {
+    .drizzy {
+      height: 300px;
+     /* background-size: 130%;*/ 
+      } 
+    }
+  .drizzy h1 {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    z-index: 10; }
+    @media only screen and (max-width: 560px) {
+      .drizzy h1 {
+        line-height: 1.4; } }
+  @media only screen and (max-width: 560px) {
+    .drizzy span {
+      display: block; } }
+
+.welcome h5 {
+  padding-top: 33px; }
+
+@media (max-width: 560px) {
+  .intro h5 {
+    padding-top: 33px; } }
+
+@media (min-width: 560px) {
+  .pl {
+    padding-left: 33px; } }
+
+.quote {
+  background-image: url(images/quote-bg.jpg);
+  background-size: cover; }
+
+blockquote {
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  padding: 132px 33px;
+  font-size: 22px;
+  text-align: center;
+  line-height: 1.5;
+  color: white;
+  font-family: "Roboto", sans-serif; }
+  blockquote:before {
+    content: '\201C';
+    font-size: 45px;
+    line-height: 0;
+    display: block;
+    text-align: center;
+    text-indent: 0;
+    padding-bottom: 16.5px; }
+  blockquote cite {
+    display: block;
+    font-family: "Merriweather";
+    font-size: 16px;
+    padding-top: 33px; }
+  @media only screen and (max-width: 560px) {
+    blockquote {
+      padding: 66px 33px; } }
+
+.dates .full-hr {
+  width: 100% !important; }
+.dates h1 {
+  font-size: 64px; }
+.dates .flight-data {
+  padding-top: 33px; }
+  @media only screen and (max-width: 560px) {
+    .dates .flight-data {
+      padding-top: 0; } }
+  .dates .flight-data hr {
+    width: 200px;
+    margin-left: 0; }
+@media only screen and (max-width: 760px) {
+  .dates .column {
+    float: none;
+    padding-bottom: 33px; }
+  .dates .third {
+    width: 100%; } }
+@media only screen and (min-width: 560px) {
+  .dates .powered {
+    padding-top: 66px; } }
+
+.playlist h4 {
+  text-align: center; }
+.playlist iframe {
+  height: 500px;
+  width: 100%;
+  padding-top: 33px; }
+  @media only screen and (max-width: 560px) {
+    .playlist iframe {
+      height: 446px; } }
+
+.attendees .column {
+  padding-bottom: 33px; }
+.attendees h5, .attendees h4 {
+  color: #333333; }
+.attendees p {
+  padding: 0 16.5px;
+  font-size: 17px;
+  line-height: 1.6; }
+
+.itinerary h4, .itinerary-alt h4 {
+  color: white;
+  padding-top: 33px; }
+.itinerary h4, .itinerary p, .itinerary-alt h4, .itinerary-alt p  {
+  margin: 0 auto;
+  max-width: 700px; }
+
+.accomodations h4 {
+  text-align: center; }
+.accomodations img {
+  padding-top: 33px; }
+.accomodations iframe {
+  height: 500px; }
+  @media only screen and (max-width: 560px) {
+    .accomodations iframe {
+      height: 250px; } }
+
+.thanks h4 {
+  padding-top: 33px; }
+
+footer p {
+  padding-top: 33px;
+  font-size: 17px;
+  color: white; }
+
+video {
+  width: 100%;
+  height: 100%;
+  background: url(images/6-frame.jpg) no-repeat; }
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    video {
+      height: 380px; } }
+
+.absolute {
+  position: absolute;
+  top: 33px;
+  left: 33px;
+  z-index: 20; }
+
+.twitter-share-button {
+  position: fixed;
+  z-index: 20;
+  top: 33px;
+  border-bottom: none;
+  text-indent: -9999px;
+  right: 33px; }
+
+@media only screen and (max-width: 560px) {
+  .pt-mobile {
+    padding-top: 33px; } }
+
+small {
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.2em;
+  text-transform: uppercase; }
+
+.mt1 {
+  margin-top: 49.5px; }
+
+.avatar {
+  width: 70px;
+  padding-bottom: 33px; }
+
+.circle {
+  border-radius: 100px;
+  width: 200px;
+  margin-bottom: 33px; }
+
+#donateButton {
+  background-color: transparent;
+  border-radius: 60px;
+  border: 1px solid white;
+  font-size: 20px;
+  padding: 8.25px 33px 13.2px;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: all 0.5s ease; }
+  #donateButton:hover {
+    background-color: white;
+    color: #333333; }
+
+.donate-container {
+  text-align: center; }
+  .donate-container p {
+    padding-bottom: 49.5px; }
+  .donate-container small {
+    font-size: 16px;
+    text-transform: none;
+    letter-spacing: 0;
+    display: block; }
+  @media only screen and (max-width: 560px) {
+    .donate-container {
+      padding: 66px 33px; } }
+
+.donations {
+  padding: 33px;
+  background-color: #2b2b2b;
+  color: white; }
+  @media only screen and (min-width: 560px) {
+    .donations {
+      text-align: center; } }
+  @media only screen and (max-width: 560px) {
+    .donations h1 {
+      padding-bottom: 33px; } }
+  .donations h4 {
+    line-height: 1.8; }
+
+.virgin {
+  max-width: 10em; }
+
+.airplane {
+  max-width: 5em; }
+
+.container {
+  margin: 0 auto;
+  max-width: 860px;
+  width: 90%; }
+
+.row {
+  clear: both; }
+  .row:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+@media only screen and (min-width: 560px) {
+  .column {
+    float: left;
+    width: 100%; }
+
+  .column.flow-opposite {
+    float: right; }
+
+  .column.full {
+    width: 100%; }
+
+  .column.two-thirds {
+    width: 66.7%; }
+
+  .column.half {
+    width: 50%; }
+
+  .column.third {
+    width: 33.3%; }
+
+  .column.fourth {
+    width: 24.95%; }
+
+  .column.flow-opposite {
+    float: right; } }
+@media only screen and (max-width: 560px) {
+  .column {
+    max-width: 100%;
+    margin: 0 auto;
+    float: none; } }
+img {
+  width: 100%;
+  height: auto;
+  -ms-interpolation-mode: bicubic;
+  display: inline-block;
+  vertical-align: middle; }
+
+b {
+  font-weight: 700;
+}
+.lyrics p {
+  border-left: 1px solid white;
+  padding-left: 15px;
+}
+
+
